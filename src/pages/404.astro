@@ -1,0 +1,116 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="404 - Página no encontrada">
+    <main>
+        <div class="content">
+            <h1><span>404</span> - Página no encontrada</h1>
+            <h2>¡Vaya! Parece que alguien ha pisado un cable.</h2>                     
+        </div>
+        <div class="svg-container">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 36 36"><path fill="#FFAC33" d="M32.938 15.651C32.792 15.26 32.418 15 32 15H19.925L26.89 1.458c.219-.426.106-.947-.271-1.243C26.437.071 26.218 0 26 0c-.233 0-.466.082-.653.243L18 6.588 3.347 19.243c-.316.273-.43.714-.284 1.105S3.582 21 4 21h12.075L9.11 34.542c-.219.426-.106.947.271 1.243.182.144.401.215.619.215.233 0 .466-.082.653-.243L18 29.412l14.653-12.655c.317-.273.43-.714.285-1.106z"/>
+            </svg>
+        </div>
+    </main>
+</Layout>
+
+<style>
+    html{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+    }
+    main {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+    }
+    .content {
+        text-align: left;
+    }
+    span{
+        background: -webkit-linear-gradient(#ff9e0d, #ffea00);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
+    .svg-container{
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 100%;
+    }
+    svg{
+        height: 150px;
+        width: 150px;
+        stroke:#edf2f6;animation:dashoffset 10s both infinite,fill-opacity 10s both infinite,stroke-opacity 10s both infinite;stroke-dasharray:500%;stroke-dashoffset:500%}@keyframes stroke-opacity{2%,25%{stroke-opacity:.75;stroke-width:2%}100%,75%{stroke-opacity:0;stroke-width:0}}@keyframes fill-opacity{10%,25%{fill-opacity:0}0%,100%,50%{fill-opacity:1}}@keyframes dashoffset{0%,2%{stroke-dashoffset:500%}100%{stroke-dashoffset:0%}
+    }
+    h1{
+        font-size: 80px;
+    }
+    h2{
+        font-size: 30px;
+        padding-left: 10px;
+    }
+
+    /* Media queries for responsiveness */
+    @media (max-width: 1200px) {
+        h1 {
+            font-size: 60px;
+        }
+        h2 {
+            font-size: 24px;
+        }
+        svg {
+            height: 120px;
+            width: 120px;
+        }
+    }
+
+    @media (max-width: 992px) {
+        h1 {
+            font-size: 50px;
+        }
+        h2 {
+            font-size: 20px;
+        }
+        svg {
+            height: 100px;
+            width: 100px;
+        }
+    }
+
+    @media (max-width: 768px) {
+        main {
+            flex-direction: column;
+        }
+        .content, .svg-container {
+            text-align: center;
+        }
+        h1 {
+            font-size: 40px;
+        }
+        h2 {
+            font-size: 18px;
+        }
+        svg {
+            height: 80px;
+            width: 80px;
+        }
+    }
+
+    @media (max-width: 576px) {
+        h1 {
+            font-size: 30px;
+        }
+        h2 {
+            font-size: 16px;
+        }
+        svg {
+            height: 60px;
+            width: 60px;
+        }
+    }
+</style>

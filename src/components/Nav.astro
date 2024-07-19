@@ -1,0 +1,121 @@
+<nav class="flex flex-grow basis-0 justify-between items-center text-2xl">
+    <img
+        src="/public/logo.avif"
+        alt="Logo"
+        height="30"
+        width="50"
+    />
+
+    <ul class="flex [&>li>a]:px-2 [&>li>a]:py-2">
+        <li><a href="/electricity">Electricidad ⚡</a></li>
+        <li class="dropdown">
+            <a>Gasoleo</a>
+            <div class="dropdown-content">
+                <a href="/gasoleo-a">Gasoleo A</a>
+                <a href="/gasoleo-b">Gasoleo B 🚜</a>
+                <a href="/gasolina">Gasolina</a>
+            </div>
+        </li>
+        <li class="dropdown">
+            <a>Gas</a>
+            <div class="dropdown-content">
+                <a href="/hidrogeno">Hidrógeno verde 🍃</a>
+                <a href="/butano">Butano</a>
+            </div>
+        </li>
+    </ul>
+    <ul class="flex [&>li>a]:px-4 [&>li>a]:py-2">
+        <div class="my-account"><li><a href="/dashboard">Mi cuenta</a></li></div>
+        <li><a href="/contact">Contactar</a></li>
+    </ul>
+    <div
+        id="menu-backdrop"
+        class={`
+            absolute bg-[#fd8204] backdrop-blur-lg rounded
+            translate-x-[var(--left)] translate-y-[var(--top)]
+            left-0 top-0
+            w-[var(--width)] h-[var(--height)]
+            transition-all duration-500
+            ease-in-out opacity-0 -z-10
+          `}
+  >
+</nav>
+
+<style>
+.dropdown-content {
+    border-radius: 3px;
+    display: none;
+    position: absolute;
+    background-color: #000; /* Fondo negro */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 6px 16px;
+    text-decoration: none;
+    display: block;
+}
+</style>
+
+<script>
+    const listItem = document.querySelectorAll("nav li")
+    const menuBackDrop = document.getElementById("menu-backdrop")
+
+    listItem.forEach((item) => {
+        item.addEventListener("mouseenter", () => {
+          const { left, top, width, height } = item.getBoundingClientRect()
+
+          console.log({left, top, width, height})
+
+          if (menuBackDrop) { 
+            menuBackDrop.style.setProperty("--left", `${left}px`)
+            menuBackDrop.style.setProperty("--top", `${top}px`)
+            menuBackDrop.style.setProperty("--width", `${width}px`)
+            menuBackDrop.style.setProperty("--height", `${height}px`)
+
+            menuBackDrop.style.opacity = "1"
+            menuBackDrop.style.visibility = "visible"
+          }
+        })
+
+        item.addEventListener("mouseleave", () => {
+          if (menuBackDrop) {
+            menuBackDrop.style.opacity = "0"
+            menuBackDrop.style.visibility = "hidden"
+          }
+        })
+      })
+
+    const dropdowns = document.querySelectorAll(".dropdown")
+
+    dropdowns.forEach((dropdown) => {
+        dropdown.addEventListener("click", (event) => {
+            event.stopPropagation()
+
+            // Cerrar todos los menús desplegables
+            dropdowns.forEach((d) => {
+                if (d !== dropdown) {
+                    d.querySelector(".dropdown-content").style.display = "none"
+                }
+            })
+
+            // Abrir o cerrar el menú desplegable actual
+            const content = dropdown.querySelector(".dropdown-content")
+            if (content.style.display === "block") {
+                content.style.display = "none"
+            } else {
+                content.style.display = "block"
+            }
+        })
+    })
+
+    // Cerrar todos los menús desplegables cuando se hace clic fuera de ellos
+    window.addEventListener("click", () => {
+        dropdowns.forEach((dropdown) => {
+            dropdown.querySelector(".dropdown-content").style.display = "none"
+        })
+    })
+</script>
