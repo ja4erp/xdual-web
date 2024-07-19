@@ -1,4 +1,4 @@
-<nav class="flex flex-grow basis-0 justify-between items-center text-2xl">
+<nav class="flex flex-grow basis-0 justify-between items-center text-xl">
     <img
         src="/public/logo.avif"
         alt="Logo"
@@ -7,31 +7,32 @@
     />
 
     <ul class="flex [&>li>a]:px-2 [&>li>a]:py-2">
-        <li><a href="/electricity">Electricidad ⚡</a></li>
+        <!-- <li><a href="https://my.xdual.es/vps">VPS</a></li> -->
         <li class="dropdown">
-            <a>Gasoleo</a>
+            <a>VPS</a>
             <div class="dropdown-content">
-                <a href="/gasoleo-a">Gasoleo A</a>
-                <a href="/gasoleo-b">Gasoleo B 🚜</a>
-                <a href="/gasolina">Gasolina</a>
+                <a href="https://my.xdual.es/vps-de">Vps germany 🇩🇪</a>
+                <a href="https://my.xdual.es/vps-es">Vps spain 🇪🇸</a>
+                <a href="https://my.xdual.es/vps-mia">Vps miami 🇺🇸</a>
             </div>
         </li>
         <li class="dropdown">
-            <a>Gas</a>
+            <a>Dedicated server</a>
             <div class="dropdown-content">
-                <a href="/hidrogeno">Hidrógeno verde 🍃</a>
-                <a href="/butano">Butano</a>
+                <a href="https://my.xdual.es/dedicated-de">Germany 🇩🇪</a>
+                <a href="https://my.xdual.es/dedicated-es">Spain 🇪🇸</a>
+                <a href="https://my.xdual.es/dedicated-mia">Miami 🇺🇸</a>
             </div>
         </li>
     </ul>
     <ul class="flex [&>li>a]:px-4 [&>li>a]:py-2">
-        <div class="my-account"><li><a href="/dashboard">Mi cuenta</a></li></div>
-        <li><a href="/contact">Contactar</a></li>
+        <li><a class="contact" href="/contact">Contactar</a></li>
+        <li><a class="my-account" href="/dashboard">Mi cuenta</a></li>
     </ul>
     <div
         id="menu-backdrop"
         class={`
-            absolute bg-[#fd8204] backdrop-blur-lg rounded
+            absolute bg-[#A1A1A1] backdrop-blur-lg rounded
             translate-x-[var(--left)] translate-y-[var(--top)]
             left-0 top-0
             w-[var(--width)] h-[var(--height)]
@@ -58,6 +59,26 @@
     text-decoration: none;
     display: block;
 }
+
+.my-account {
+    background-color: white;
+    border-radius: 3px;
+    color: black;
+    padding: 6px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+/* Queda dejarlo mejor*/
+.contact {
+    border: 1px solid gray;
+    border-radius: 3px;
+    padding: 4px 12px; 
+
+}
+
+
+
 </style>
 
 <script>
