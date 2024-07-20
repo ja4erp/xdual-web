@@ -82,61 +82,68 @@
 </style>
 
 <script>
-    const listItem = document.querySelectorAll("nav li")
-    const menuBackDrop = document.getElementById("menu-backdrop")
+    const listItem = document.querySelectorAll("nav li");
+    const menuBackDrop = document.getElementById("menu-backdrop");
 
     listItem.forEach((item) => {
         item.addEventListener("mouseenter", () => {
-          const { left, top, width, height } = item.getBoundingClientRect()
+            const { left, top, width, height } = item.getBoundingClientRect();
 
-          console.log({left, top, width, height})
+            console.log({ left, top, width, height });
 
-          if (menuBackDrop) { 
-            menuBackDrop.style.setProperty("--left", `${left}px`)
-            menuBackDrop.style.setProperty("--top", `${top}px`)
-            menuBackDrop.style.setProperty("--width", `${width}px`)
-            menuBackDrop.style.setProperty("--height", `${height}px`)
+            if (menuBackDrop) { 
+                menuBackDrop.style.setProperty("--left", `${left}px`);
+                menuBackDrop.style.setProperty("--top", `${top}px`);
+                menuBackDrop.style.setProperty("--width", `${width}px`);
+                menuBackDrop.style.setProperty("--height", `${height}px`);
 
-            menuBackDrop.style.opacity = "1"
-            menuBackDrop.style.visibility = "visible"
-          }
-        })
+                menuBackDrop.style.opacity = "1";
+                menuBackDrop.style.visibility = "visible";
+            }
+        });
 
         item.addEventListener("mouseleave", () => {
-          if (menuBackDrop) {
-            menuBackDrop.style.opacity = "0"
-            menuBackDrop.style.visibility = "hidden"
-          }
-        })
-      })
+            if (menuBackDrop) {
+                menuBackDrop.style.opacity = "0";
+                menuBackDrop.style.visibility = "hidden";
+            }
+        });
+    });
 
-    const dropdowns = document.querySelectorAll(".dropdown")
+    const dropdowns = document.querySelectorAll(".dropdown");
 
     dropdowns.forEach((dropdown) => {
         dropdown.addEventListener("click", (event) => {
-            event.stopPropagation()
+            event.stopPropagation();
 
             // Cerrar todos los menús desplegables
             dropdowns.forEach((d) => {
-                if (d !== dropdown) {
-                    d.querySelector(".dropdown-content").style.display = "none"
+                const dropdownContent = d.querySelector(".dropdown-content") as HTMLElement | null;
+                if (dropdownContent && d !== dropdown) {
+                    dropdownContent.style.display = "none";
                 }
-            })
+            });
 
             // Abrir o cerrar el menú desplegable actual
-            const content = dropdown.querySelector(".dropdown-content")
-            if (content.style.display === "block") {
-                content.style.display = "none"
-            } else {
-                content.style.display = "block"
+            const content = dropdown.querySelector(".dropdown-content") as HTMLElement | null;
+            if (content) {
+                if (content.style.display === "block") {
+                    content.style.display = "none";
+                } else {
+                    content.style.display = "block";
+                }
             }
-        })
-    })
+        });
+    });
 
     // Cerrar todos los menús desplegables cuando se hace clic fuera de ellos
     window.addEventListener("click", () => {
         dropdowns.forEach((dropdown) => {
-            dropdown.querySelector(".dropdown-content").style.display = "none"
-        })
-    })
+            const dropdownContent = dropdown.querySelector(".dropdown-content") as HTMLElement | null;
+            if (dropdownContent) {
+                dropdownContent.style.display = "none";
+            }
+        });
+    });
 </script>
+
