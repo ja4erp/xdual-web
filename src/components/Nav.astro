@@ -7,7 +7,6 @@
     />
 
     <ul class="flex [&>li>a]:px-2 [&>li>a]:py-2">
-        <!-- <li><a href="https://my.xdual.es/vps">VPS</a></li> -->
         <li class="dropdown">
             <a>VPS</a>
             <div class="dropdown-content">
@@ -25,9 +24,9 @@
             </div>
         </li>
     </ul>
-    <ul class="flex [&>li>a]:px-4 [&>li>a]:py-2">
-        <li><a class="contact" href="/contact">Contactar</a></li>
-        <li><a class="my-account" href="/dashboard">Mi cuenta</a></li>
+    <ul class="flex space-x-3 [&>li>a]:px-3 [&>li>a]:py-2">
+        <li class="mr-4"><a class="border border-[#878787] border-1 rounded-md block h-[36px] px-4 py-1.5" href="/contact">Contactar</a></li>
+        <li><a class="bg-white text-black rounded-sm px-4 py-1.5 no-underline block" href="/dashboard">Mi cuenta</a></li>
     </ul>
     <div
         id="menu-backdrop"
@@ -41,6 +40,7 @@
           `}
   >
 </nav>
+<div class="bg-[#878787] h-[1px] w-full"></div>
 
 <style>
 .dropdown-content {
@@ -59,26 +59,6 @@
     text-decoration: none;
     display: block;
 }
-
-.my-account {
-    background-color: white;
-    border-radius: 3px;
-    color: black;
-    padding: 6px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-/* Queda dejarlo mejor*/
-.contact {
-    border: 1px solid gray;
-    border-radius: 3px;
-    padding: 4px 12px; 
-
-}
-
-
-
 </style>
 
 <script>
