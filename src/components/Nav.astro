@@ -88,8 +88,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const menuButton = document.querySelector('button[aria-controls="navbar-sticky"]');
     const mobileMenu = document.getElementById('mobile-menu');
 
-    menuButton.addEventListener('click', function() {
-        mobileMenu.classList.toggle('hidden');
-    });
+    if (menuButton && mobileMenu) {
+        menuButton.addEventListener('click', function() {
+            mobileMenu.classList.toggle('hidden');
+        });
+    } else {
+        console.error('menuButton or mobileMenu is not found in the DOM.');
+    }
 });
+
 </script>
