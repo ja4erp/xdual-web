@@ -18,8 +18,8 @@ const { name, href, price, features } = Astro.props;
         <span class="ms-1 text-xl font-normal text-gray-400">/month</span>
     </div>
     <ul role="list" class="md:space-y-2 my-4">
-        {features.map((feature, index) => (
-            <li class="flex items-center" key={index}>
+        {features.map((feature) => (
+            <li class="flex items-center">
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 20 20"
