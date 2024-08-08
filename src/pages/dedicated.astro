@@ -3,21 +3,21 @@ import Layout from '../layouts/Layout.astro';
 import Nav from '../components/Nav.astro';
 import Header from '../components/Header.astro';
 import Info from '../components/Cards.astro';
-import Products from '../components/Products.astro';
-import Review from '../components/Review.astro';
 import Footer from '../components/Footer.astro';
+import Faq from '../components/Faq.astro';
+import DedicatedCard from '../components/dedicated.astro';
 ---
 
 <Layout 
-	title="Xdual" 
-	>
+	title="Xdual | DEDICATED SERVER" 
+    >
 
 	<main>
 		<Nav/>
 		<Header/>
+        <DedicatedCard/>
 		<Info/>
-		<Products/>
-		<Review/>
+        <Faq/>
 		<Footer/>
 	</main>
 </Layout>

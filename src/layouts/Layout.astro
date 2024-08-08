@@ -3,18 +3,16 @@ import  SpeedInsights  from "@vercel/speed-insights/astro"
 
 interface Props {
 	title: string;
-	description: string;
 }
 
 const { title } = Astro.props;
-const { description } = Astro.props;
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="description" content={description} />
+		<meta name="description" content="Xdual  provides the best possible hosting services. We offer solutions for both individuals, with game servers and VPS, as well as for businesses with our high-quality dedicated servers, all with DDoS protection in a modern format." />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
