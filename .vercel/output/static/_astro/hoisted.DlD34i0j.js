@@ -1,1 +1,0 @@
-import"./hoisted.B_st5uWx.js";document.addEventListener("DOMContentLoaded",function(){const e=document.querySelector('button[aria-controls="navbar-sticky"]'),n=document.getElementById("mobile-menu");e&&n?e.addEventListener("click",function(){n.classList.toggle("hidden")}):console.error("menuButton or mobileMenu is not found in the DOM.")});
