@@ -1,0 +1,127 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
+import Header from '../components/Header.astro';
+import Info from '../components/Cards.astro';
+import Footer from '../components/Footer.astro';
+import PanelInfo from '../components/PanelInfo.astro';
+import VpsCard from '../components/VpsCard.astro';
+import Faq from '../components/Faq.astro';
+
+const nlProducts = [
+    {
+        name: "VPS 1",
+        href: "https://my.xdual.es/checkout/config/12",
+        price: "2",
+        features: [
+            "🇳🇱 Netherlands",
+            "2 Xeon vCores",
+            "4GB DDR4 RAM",
+            "50GB NVMe",
+            "AntiDDoS path.net + 1 IPv4",
+            "Unlimited Bandwidth",
+            "24/7 Support",
+        ]
+    },
+    {
+        name: "VPS 2",
+        href: "https://my.xdual.es/checkout/config/13",
+        price: "3",
+        features: [
+            "🇳🇱 Netherlands",
+            "4 Xeon vCores",
+            "6GB DDR4 RAM",
+            "70GB NVMe",
+            "AntiDDoS path.net + 1 IPv4",
+            "Unlimited Bandwidth",
+            "24/7 Support"
+        ]
+    },
+];
+
+const deProducts = [
+    {
+        name: "VPS 3",
+        href: "https://my.xdual.es/checkout/config/14",
+        price: "4",
+        features: [
+            "🇩🇪 Germany",
+            "6 Xeon vCores",
+            "8GB DDR4 RAM",
+            "100GB NVMe",
+            "AntiDDoS path.net + 1 IPv4",
+            "Unlimited Bandwidth",
+            "24/7 Support",
+        ]
+    },
+    {
+        name: "VPS 4",
+        href: "https://my.xdual.es/checkout/config/15",
+        price: "5",
+        features: [
+            "🇩🇪 Germany",
+            "8 Xeon vCores",
+            "16GB DDR4 RAM",
+            "200GB NVMe",
+            "AntiDDoS path.net + 1 IPv4",
+            "Unlimited Bandwidth",
+            "24/7 Support"
+        ]
+    },
+];
+
+---
+
+<Layout title="Xdual | VPS">
+    <main>
+        <Nav/>
+        <Header/>
+        <div class="relative max-w-7xl mx-auto px-3 pt-10">
+            <h1 class="mb-4 font-bold text-3xl text-white">Our Products</h1>
+            <div class="flex justify-center mb-8">
+                <button id="nlButton" class="mx-2 px-4 py-2 bg-yellow-500 rounded" onclick="filterProducts('NL')">Netherlands VPS</button>
+                <button id="deButton" class="mx-2 px-4 py-2 bg-white rounded" onclick="filterProducts('DE')">Germany VPS</button>
+            </div>
+            <div id="productsContainer" class="grid md:grid-cols-3 sm:grid-cols-1 gap-4">
+                {nlProducts.map(product => (
+                    <VpsCard
+                        name={product.name}
+                        href={product.href}
+                        price={product.price}
+                        features={product.features}
+                    />
+                ))}
+            </div>
+        </div>
+        <Info/>
+        <PanelInfo/>
+        <Faq/>
+        <Footer/>
+    </main>
+</Layout>
+
+<script>
+        const nlProducts = JSON.parse(`<%- JSON.stringify(nlProducts) %>`);
+    const deProducts = JSON.parse(`<%- JSON.stringify(deProducts) %>`);
+
+    function filterProducts(country) {
+        const productsContainer = document.getElementById('productsContainer');
+        const nlButton = document.getElementById('nlButton');
+        const deButton = document.getElementById('deButton');
+
+        let products = [];
+        if (country === 'NL') {
+            products = nlProducts;
+            nlButton.classList.add('bg-yellow-500');
+            nlButton.classList.remove('bg-white');
+            deButton.classList.add('bg-white');
+            deButton.classList.remove('bg-yellow-500');
+        } else {
+            products = deProducts;
+            deButton.classList.add('bg-yellow-500');
+            deButton.classList.remove('bg-white');
+            nlButton.classList.add('bg-white');
+            nlButton.classList.remove('bg-yellow-500');
+        }
+    }
+</script>
